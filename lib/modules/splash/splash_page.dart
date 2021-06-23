@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pay_flow/shared/auth/auth_controller.dart';
 import 'package:pay_flow/shared/themes/app_images.dart';
 import 'package:pay_flow/shared/themes/appcolors.dart';
 
@@ -7,6 +8,8 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authController = AuthController();
+    authController.getCurrentUser(context);
     return Scaffold(
       backgroundColor: AppColors.background,
       body: Center(

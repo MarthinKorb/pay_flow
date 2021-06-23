@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pay_flow/modules/login/login_controller.dart';
 import 'package:pay_flow/shared/themes/app_images.dart';
 import 'package:pay_flow/shared/themes/app_text_styles.dart';
 import 'package:pay_flow/shared/themes/appcolors.dart';
@@ -14,6 +15,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    final controller = LoginController();
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -34,7 +36,23 @@ class _LoginPageState extends State<LoginPage> {
               child: Image.asset(AppImages.person, width: 200, height: 343),
             ),
             Positioned(
-              bottom: size.height * 0.08,
+              top: size.height * 0.5,
+              left: 0,
+              right: 0,
+              child: Container(
+                height: 100,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.background,
+                      blurRadius: 25,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: size.height * 0.12,
               left: 0,
               right: 0,
               child: Column(
@@ -55,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding:
                         const EdgeInsets.only(top: 40, left: 40, right: 40),
                     child: SocialLoginButton(
-                      onTap: () {},
+                      onTap: () async => await controller.handleSignIn(context),
                     ),
                   ),
                 ],
