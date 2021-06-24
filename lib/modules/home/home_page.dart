@@ -85,14 +85,17 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               decoration: BoxDecoration(
-                  color: AppColors.primary,
-                  borderRadius: BorderRadius.circular(5)),
+                color: AppColors.primary,
+                borderRadius: BorderRadius.circular(5),
+              ),
               child: IconButton(
                 icon: Icon(
                   Icons.add_box_outlined,
                   color: AppColors.shape,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/barcode_scanner');
+                },
               ),
             ),
             IconButton(
